@@ -11,10 +11,12 @@ function addTask(){
         lis.appendChild(li)
 
         const span=document.createElement('span')
+        span.className="cross-btn"
         span.innerHTML='\u00d7'
         li.appendChild(span)
 
         const ebtn=document.createElement('button')
+        ebtn.className="edit-btn"
         ebtn.textContent="Edit"
         li.appendChild(ebtn)
     }
@@ -85,3 +87,73 @@ function showData(){
     lis.innerHTML=localStorage.getItem('data')
 }
 showData()
+
+const searchIP=document.getElementById('searchTask')
+
+function search(){
+    searchIP.addEventListener('input',function(){
+        const search_task=searchIP.value.toLowerCase()
+        const present_task=lis.getElementsByTagName('li')
+        for(let i=0;i<present_task.length;i++){
+            const task=present_task[i]
+            const taskText=task.textContent||task.innerText
+            if(taskText.toLowerCase().indexOf(search_task)>-1){
+                task.style.display=""
+            }else{
+                 task.style.display="none"
+            }
+
+        }
+
+    })
+}
+search()
+
+const all=document.getElementById('all')
+const active=document.getElementById('active')
+const completed=document.getElementById('completed')
+
+all.addEventListener('click',function(){
+    filterTask('all')
+})
+
+active.addEventListener('click',function(){
+    filterTask('active')
+})
+completed.addEventListener('click',function(){
+    filterTask('completed')
+})
+
+function filterTask(status){
+    const present_task=lis.getElementsByTagName('li')
+    for(let i=0;i<present_task.length;i++){
+        const task=present_task[i]
+        if(status==='all'){
+            task.style.display=""
+        }else if(status==='active' && !task.classList.contains('checked')){
+            task.style.display=""
+        }else if(status==='completed' && task.classList.contains('checked')){
+            task.style.display=""
+        }else{
+            task.style.display="none"
+        }
+    }
+}
+
+
+const grpBy=document.getElementById('grpbyBtn')
+
+grpBy.addEventListener('click',function(){
+    groupByTask()
+})
+
+function groupByTask(){
+    const present_task=Array.from(lis.getElementsByTagName('li'))
+    const active=present_task.filter(task=> !task.classList.contains('checked'))
+    const complete=present_task.filter(task=> task.classList.contains('checked'))
+
+    lis.innerHTML=""
+
+    active.forEach(task=>lis.appendChild(task))
+    complete.forEach(task=>lis.appendChild(task))
+}

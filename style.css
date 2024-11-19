@@ -1,3 +1,18 @@
+/* @media (max-width:475px){}
+
+@media(min-width:475px) and (max-width:640px){}
+
+@media (min-width:640px)and (max-width:768px){}
+
+@media (min-width:768px) and (max-width:1024px){}
+
+@media (min-width:1024px) and (max-width:1280px){}
+
+@media (min-width:1280px) and (max-width:1536px){}
+
+@media (max-width:1536px){} */
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,9 +20,12 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .container{
-    width: 100%;
-    height: 100vh;
+    position: relative;
+    min-width:  100vh;
+    min-height: 100vh;
     padding: 10px;
+    background-attachment: scroll;
+    background-size: cover;
     background: linear-gradient(135deg,lavender,pink);
 }
 
@@ -52,7 +70,13 @@
     border-radius: 10px;
     background: transparent;
     padding: 5px;
-    box-shadow: inset 0px 0px 15px lightgray;
+    box-shadow: inset 0px 0px 30px rgb(226, 202, 247);
+}
+
+#ipBox:hover{
+    box-shadow: none;
+    background-color: aliceblue;
+    transition: all 0.2s ease-in-out;
 }
 
 .row button{
@@ -61,7 +85,7 @@
     font-size: 18px;
    color: aliceblue;
    font-weight: bolder;
-   background-color: chartreuse;
+   background-color: rgb(249, 172, 40);
     padding: 6px 30px;
     border-radius: 20px;
     outline: none;
@@ -70,14 +94,15 @@
 
 .row button:hover{
     /* transition: 3s ease-in-out 1s ; */
-    background-color: teal;
-    box-shadow: 0px 0px 20px gray;
-    transition: all 0.5s ease-in-out;
+    background-color: yellowgreen;
+    box-shadow: 0px 0px 20px rgb(231, 176, 255);
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 
 ul li{
     list-style: none;
+   
     cursor: pointer;
     font-size: 16px;
     font-style: oblique;
@@ -141,7 +166,7 @@ ul li button:hover{
 }
 
 ul li input{
-    box-shadow: inset 0px 0px 20px rgb(240, 200, 206);
+    box-shadow: inset 0px 0px 20px rgb(237, 223, 225);
     background: transparent;
     border: 2px solid transparent;
     border-radius: 40px;
@@ -151,5 +176,68 @@ ul li input{
 }
 
 
+.container #searchTask{
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    width: 400px;
+    left: 455px;
+    border: none;
+    border-radius: 20px;
+    background: transparent;
+    box-shadow: inset 10px 15px 30px rgb(234, 182, 234);
+}
+
+.container #searchTask:hover{
+    background-color: aliceblue;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    box-shadow:  none;
+}
+
+.filter-btn {
+    position: absolute;
+    top: 40px; 
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    gap: 15px; 
+}
+
+.filter-btn label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ #all, #active,#completed{
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    border: none; 
+    background-color: transparent;
+
+}
+
+#all:hover, #active:hover,#completed:hover {
+    background-color: yellowgreen; 
+    color: whitesmoke;
+    transition: all 0.3s ease-in-out;
+}
+
+.groupBy #grpbyBtn{
+   padding: 5px 5px 5px 5px;
+   position: absolute;
+   top: 15%;
+   left: 20px;
+   border: none;
+   position: absolute;
+   background-color: transparent;
+   border-radius: 20px;
+}
+
+.groupBy #grpbyBtn:hover{
+    background-color: crimson;
+    color: whitesmoke;
+    padding: 10px 10px 10px 10px;
+    transition: all 0.3s ease-in-out;
+
+}
 
 
