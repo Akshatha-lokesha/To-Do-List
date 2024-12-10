@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>To-Do List</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <input type="text" id="searchTask" placeholder="Search the task...">
+            <div class="filter-section">
+                <label>Filter:</label>
+                    <button id="all">All</button>
+                    <button id="active">Active</button>
+                    <button id="completed">Completed</button>
+            </div>
+
+        <div class="date-filter">
+            <label>Start Date:</label>
+            <input type="date" id="filterStartDate" placeholder="Start Date">
+            <label>End Date:</label>
+            <input type="date" id="filterEndDate" placeholder="End Date">
+        </div>
+
+        <div class="keyword-search">
+    <label>Search by Keyword</label>
+    <input list="keywordList" id="keywordSearch" placeholder="Search by keyword...">
+    <datalist id="keywordList">
+        <option value="complete">
+        <option value="urgent">
+        <option value="later">
+        <option value="priority">
+        <option value="high">
+        <option value="low">
+        <option value="medium">
+        <option value="important">
+        <option value="today">
+        <option value="overdue">
+    </datalist>
+</div>
+
+            <div class="groupBy">
+                <lable>Group By:</lable>
+                <select id="sortOptions">
+                    <option style="color: lightgrey;" placeholder="--datalist--">--Select--</option>
+                    <option value="grpbyTask">Group By Task</option>
+                    <option value="recent">Recently Modified</option>
+                    <option value="alphabetical">Alphabetical Order</option>
+                    <option value="startDate">Sort by Start Date</option>
+                    <option value="endDate">Sort by End Date</option>
+                </select>
+            </div>
+            <div>
+                <button id="refresh">Reset</button>
+            </div>
+            <div class="to-do">
+                <h1>To-Do List <img src="assets/images/icon.png" alt="icon"></h1>
+                <div class="row">
+                    <input type="text" id="ipBox" placeholder="What's your next task...?">
+                    <button id="addTaskButton" >Add</button>
+                </div>
+
+                <div class="to-do-list">
+                    <h1>To-Do List <img src="assets/images/icon.png" alt="icon"></h1>
+                    <div class="row">
+                        <input type="text" id="ipBox" placeholder="What's your next task...?">
+                        <button id="addTaskButton" >Add</button>
+                    </div>
+
+                <div class="task-dates">
+                    <input type="date" id="startDate" placeholder="Start Date">
+                    <input type="date" id="endDate" placeholder="End Date">
+                </div>
+                <ul id="listContainer">
+                    <!-- <li class="checked">task1</li>
+                    <li>task2</li>
+                    <li>task3</li> -->
+                </ul>
+                
+            </div>
+        </div>
+        
+        <script type="module" src="js/model/model01.js" defer></script>
+        <script type="module" src="js/view/views01.js" defer></script>
+        <script type="module" src="js/controller/controller01.js" defer></script>
+        <script type="module" src="js/main.js" defer></script>
+        
+    </body>
+</html>
